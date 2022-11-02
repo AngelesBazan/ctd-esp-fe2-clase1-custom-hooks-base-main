@@ -28,12 +28,22 @@
     "@types/react-dom": "^17.0.14",
     "@types/react-icons": "^3.0.0",
     "@types/react-redux": "^7.1.23",
-    "@types/styled-components": "^5.1.24"
+    "@types/styled-components": "^5.1.24",
+    "eslint": "^8.10.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-import-resolver-typescript": "^2.7.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "latest",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "prettier": "^2.5.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "tsc --noEmit && eslint . --fix --max-warnings 0",
+	  "lint:fix": "eslint --fix"
   },
   "browserslist": {
     "production": [

@@ -1,20 +1,14 @@
 import { useState, useCallback } from 'react';
 
 type UseToggleType = {
-    isOpen: boolean,
-    toggle: () => void
-}
+  isOpen: boolean;
+  toggle: () => void;
+};
 
-export const useToggle = (initialState = false):UseToggleType => {
-    
-    const [isOpen, setIsOpen] = useState(initialState);
-    
-    const toggle = useCallback(
+export const useToggle = (initialState = false): UseToggleType => {
+  const [isOpen, setIsOpen] = useState(initialState);
 
-        () => setIsOpen((isOpen) => !isOpen),
-        [isOpen]
+  const toggle = useCallback(() => setIsOpen((isOpen) => !isOpen), [isOpen]);
 
-    );
-    
-    return { isOpen, toggle };
-}
+  return { isOpen, toggle };
+};

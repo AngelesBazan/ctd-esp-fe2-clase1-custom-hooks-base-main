@@ -9,23 +9,18 @@ import Page1 from 'pages/Page1';
 import { LanguageComponent } from 'features/language';
 import { TrackingProvider } from 'features/tracking/tracking.context';
 
-
-const App: FC = () => {
-
-
-  return (
-    <Provider store={store}>
-      <TrackingProvider>
-        <LanguageComponent language={language} setLanguage={setLanguage} t={translate} />
-        <Navbar t={translate} />
-        <Routes>
-          <Route path="/" element={<Page3 />} />
-          <Route path="/location/:id" element={<Page2 />} />
-          <Route path="/following" element={<Page1 />} />
-        </Routes>
-      </TrackingProvider>
-    </Provider>
-  );
-}
+const App: FC = () => (
+  <Provider store={store}>
+    <TrackingProvider>
+      {/* <LanguageComponent language={language} setLanguage={setLanguage} t={translate} />
+        <Navbar t={translate} /> */}
+      <Routes>
+        <Route path="/" element={<Page3 />} />
+        <Route path="/location/:id" element={<Page2 />} />
+        <Route path="/following" element={<Page1 />} />
+      </Routes>
+    </TrackingProvider>
+  </Provider>
+);
 
 export default App;

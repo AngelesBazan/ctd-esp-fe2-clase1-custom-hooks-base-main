@@ -12,8 +12,10 @@ export type CharactersComponentProps = {
   rickIDDS: number[];
 };
 
-const CharactersComponent: FC<CharactersComponentProps> = ({ rickIDDS }: CharactersComponentProps) => {
-  const { data: characters, error, isLoading } = useGetCharactersQuery( { ids: rickIDDS } );
+const CharactersComponent: FC<CharactersComponentProps> = ({
+  rickIDDS
+}: CharactersComponentProps) => {
+  const { data: characters, error, isLoading } = useGetCharactersQuery({ ids: rickIDDS });
   const dispatch = useAppDispatch();
   const followingIds = useAppSelector((state) => state.following.followingIds);
 
@@ -31,16 +33,16 @@ const CharactersComponent: FC<CharactersComponentProps> = ({ rickIDDS }: Charact
 
   return (
     <div className={'characters'}>
-      {charactersArray.map((iHateThisChars) => (
-        <div className={"card"} key={iHateThisChars.id}>
-          <div className={"card-image"}>
-            <img src={iHateThisChars.image} />
+      {charactersArray.map((ch) => (
+        <div className={'card'} key={ch.id}>
+          <div className={'card-image'}>
+            <img src={ch.image} />
           </div>
-          <div className={"card-body"}>
-            <span>{iHateThisChars.name}</span>
+          <div className={'card-body'}>
+            <span>{ch.name}</span>
             <FollowingButtonComponent
-              isFav={followingIds.indexOf(iHateThisChars.id) >= 0}
-              onToggleFavorite={(setFav) => onToggleFavorite(iHateThisChars, setFav)}
+              isFav={followingIds.indexOf(ch.id) >= 0}
+              onToggleFavorite={(setFav) => onToggleFavorite(ch, setFav)}
             />
           </div>
         </div>
